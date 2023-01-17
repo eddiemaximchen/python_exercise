@@ -1,38 +1,42 @@
-#類別
-class House:
-    floor:int
-    color:str
+#inheritance
+class product:
+    name:str
+    price:int
 
-    def __init__(self,floor:int,color:str):
-        self.floor=floor
-        self.color=color
-    def __str__(self):
-        return f"This is a {self.floor} floor high {self.color} house."
-house =House(floor=2,color="black")
-print(house)
-#繼承
-class BaseHouse:
-    floor:int
-    color:str
+    def __init__(self,name:str,price:int):
+        self.name=name
+        self.price=price
 
-    def __init__(self,floor:int,color:str):
-        self.floor=floor
-        self.color=color
-    def __str__(self):
-        return f"This is a {self.floor} floor high {self.color} house."    
+class food(product):
+    def __init__(self, name: str, price: int):
+        super().__init__(name, price)
 
-class Apartment(BaseHouse):
+class Notebook(product):
+    def __init__(self, name: str, price: int):
+        super().__init__(name, price)
 
-    #overwrite
-    def __str__(self):
-        return f"This is a {self.floor} floor high {self.color} apartment."    
+    #encapsulation
+    def __sleep(self):
+        print('you can not access me')
 
-class Skyscraper(BaseHouse):
-    #overwrite
-    def __str__(self):
-        return f"This is a {self.floor} floor high {self.color} skyscraper."
+if __name__=="__main__":
+    shopping_list=[]
 
-apartment = Apartment(floor=10, color="red")
-skyscraper = Skyscraper(floor=100, color="gold")
-print(apartment)
-print(skyscraper)   
+    #polymorphism
+    nb1 = Notebook(name="Asus",price=30000)
+    nb2 = Notebook(name="Asus",price=20000)
+    f1 = food(name="cookie",price=200)
+
+    shopping_list.append(nb1)
+    shopping_list.append(nb2)
+    shopping_list.append(f1)
+
+    all_bill=0
+    for item in shopping_list:
+        all_bill=all_bill+item.price
+    print("all_bill=%d"%all_bill)
+    nb_bill=0
+    for item in shopping_list:
+     if (isinstance(item,Notebook)):
+       nb_bill = nb_bill+item.price
+    print("nb bill is %d"%nb_bill) 
