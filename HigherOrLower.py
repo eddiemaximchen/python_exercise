@@ -78,4 +78,4 @@ while True:
         print()
         print('Enter q to quit.')    
 print('Your score is:', score)        
-print('OK bye')
+print('OK bye') 
