@@ -40,3 +40,4 @@ if __name__=="__main__":
      if (isinstance(item,Notebook)):
        nb_bill = nb_bill+item.price
     print("nb bill is %d"%nb_bill) 
+ 
