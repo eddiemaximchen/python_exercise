@@ -2,10 +2,30 @@ from Account import *
 
 
 class Bank():
-    def __init__(self):
+    def __init__(self,hours,address,phone):
         self.accountsDict = {}
         self.nexAccountNumber = 0
+        self.hours=hours
+        self.address=address
+        self.phone=phone
 
+    def askForValidAccountNumber(self):
+        accountNumber=input('Enter your account number: ')
+        try:
+            accountNumber=int(accountNumber)
+
+        except:
+            raise AbortTransaction('The account number must be integer.')
+        if accountNumber not in self.accountsDict:
+            raise AbortTransaction(f'{accountNumber} does not exist.')
+        return accountNumber
+    
+    def getUsersAccount(self):
+        accountNumber=self.askForValidAccountNumber()
+        objAccount=self.accountsDict[accountNumber]
+        self.askForValidAccountNumber(objAccount)
+        return objAccount
+    
     def createAccount(self, theName, theStartingAmount, thePassword):
         objAccount = Account(theName, theStartingAmount, thePassword)
         newAccountNumber = self.nexAccountNumber
@@ -77,11 +97,18 @@ class Bank():
 
     def show(self):
         print('***Show info***') #顯示銀行資料
+        print('(This would typically require an admin password)')
         for userAccountNumber in self.accountsDict:
             objAccount=self.accountsDict[userAccountNumber]
             print(f'Account Number: {userAccountNumber}')
             objAccount.show()
-        
+            print()
+
+    def getInfo(self):
+        print(f'Hours: {self.hours}')
+        print(f'Address: {self.address}')
+        print(f'Phone: {self.phone}')
+        print(f'We currently have {len(self.accountsDict)} account(s) open.')    
 if __name__ == '__main__':
     objBank=Bank()
     joeAccountNumber = objBank.createAccount('Joe',100,'JoePassword')
@@ -93,6 +120,7 @@ if __name__ == '__main__':
         print('To get an account balance, press b')
         print('To close an account, press c')
         print('To make a deposit, press d')
+        print('To get info, press i')
         print('To open a new account, press o')
         print('To quit, press q')
         print('To show all accounts, press s')
@@ -108,6 +136,8 @@ if __name__ == '__main__':
             objBank.closeAccount()
         elif action=='d':
             objBank.deposit()
+        elif action=='i':
+            objBank.getInfo
         elif action=='o':
             objBank.openAccount()
         elif action=='s':
