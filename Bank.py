@@ -15,10 +15,10 @@ class Bank():
 
     def openAccount(self):
         print('***Open Account***')
-        userName = input('Your name for this account.')
-        userStartingAmount = input('Enter your initial deposit amount.')
+        userName = input('Your name for this account: ')
+        userStartingAmount = input('Enter your initial deposit amount: ')
         userStartingAmount = int(userStartingAmount)
-        userPassword = input('Set up your password.')
+        userPassword = input('Set up your password: ')
         userAccountNumber = self.createAccount(
             userName, userStartingAmount, userPassword)
         print(
@@ -27,9 +27,9 @@ class Bank():
 
     def closeAccount(self):
         print('***Close Account***')
-        userAccountNumber = input('Enter your account number.')
+        userAccountNumber = input('Enter your account number: ')
         userAccountNumber = int(userAccountNumber)
-        userPassword = input('Enter your password')
+        userPassword = input('Enter your password: ')
         objAccount = self.accountsDict[userAccountNumber]
         theBalance = objAccount.getBalance(userPassword)
 
@@ -40,28 +40,24 @@ class Bank():
 
     def balance(self):
         print('***Get Balance***')
-        userAccountNumber = input('Enter your account number.')
+        userAccountNumber = input('Enter your account number: ')
         userAccountNumber = int(userAccountNumber)
-        userAccountPassword = input('Enter your password.')
+        userAccountPassword = input('Enter your password: ')
         objAccount = self.accountsDict[userAccountNumber]
         theBalance = objAccount.getBalance(userAccountPassword)
-        if theBalance is None:
-            print('Wrong password.')
-        else:
+        if theBalance is not None:
             print(f'Your balance is {theBalance}.')
 
     def deposit(self):
         print('***Deposit***')
-        userAccountNumber = input('Enter your account number.')
+        userAccountNumber = input('Enter your account number: ')
         userAccountNumber = int(userAccountNumber)
-        userAccountPassword = input('Enter your password.')
+        userAccountPassword = input('Enter your password: ')
         objAccount = self.accountsDict[userAccountNumber]
-        userDepositAmount = input('Enter your deposit amount.')
+        userDepositAmount = input('Enter your deposit amount: ')
         userDepositAmount = int(userDepositAmount)
         theBalance = objAccount.deposit(userDepositAmount, userAccountPassword)
-        if theBalance is None:
-            print('Wrong password.')
-        else:
+        if theBalance is not None:
             print(f'Your balance is {theBalance}.')
 
     def withdrawal(self):
@@ -86,5 +82,41 @@ class Bank():
             print(f'Account Number: {userAccountNumber}')
             objAccount.show()
         
-        
-        
+if __name__ == '__main__':
+    objBank=Bank()
+    joeAccountNumber = objBank.createAccount('Joe',100,'JoePassword')
+    print(f"Joe's account number is {joeAccountNumber}")
+    janeAccountNumber = objBank.createAccount('Jane',12345,'JanePassword')
+    print(f"Jane's account number is {janeAccountNumber}")    
+    while True:
+        print()
+        print('To get an account balance, press b')
+        print('To close an account, press c')
+        print('To make a deposit, press d')
+        print('To open a new account, press o')
+        print('To quit, press q')
+        print('To show all accounts, press s')
+        print('To make a withdrawal, press w')
+        print()
+
+        action=input('What service do you need?')
+        action = action[0].lower() #防呆
+        print()
+        if action =='b':
+            objBank.balance()
+        elif action =='c':
+            objBank.closeAccount()
+        elif action=='d':
+            objBank.deposit()
+        elif action=='o':
+            objBank.openAccount()
+        elif action=='s':
+            objBank.show()
+        elif action=='q':
+            break
+        elif action=='w':
+            objBank.withdrawal()
+        else:
+            print('this function is not available. Please try again.')
+
+
