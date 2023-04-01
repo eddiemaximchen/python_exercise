@@ -1,10 +1,20 @@
 #Account class
+#自定義例外處裡
+class AbortTransaction(Exception):
+    '''raise this exception to abort a bank transaction'''
+    pass
 class Account():
     def __init__(self,name,balance,password):
         self.name=name
         self.balance=balance
         self.password=password
 
+    def vaildateAmout(self,amount):
+        try:
+            amount=int(amount)
+        except ValueError:
+            raise AbortTransaction('Amout must be integer')
+            
     def deposit(self,amountToDeposit,password):
         if password != self.password:
             print('Your password is wrong')
