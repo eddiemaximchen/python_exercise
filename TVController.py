@@ -67,7 +67,7 @@ if __name__ == '__main__':
     tv.channelUp()
     tv.volumeUP()
     tv.showInfo()
-    tv.setChannel(10)
+    tv.setChannel(10) #python自己會把tv當參數傳入方法中
     tv.showInfo()
     tv.channelDown()
     tv.channelDown()
