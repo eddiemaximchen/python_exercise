@@ -15,7 +15,6 @@ clock=pygame.time.Clock()
 objBall=Ball(window,WINDOW_WIDTH,WINDOW_HEIGHT)
 #4 載入相關內容 影像 聲音等
 ballImage=pygame.image.load('images/ball.png')
-bouncesound=pygame.mixer.Sound('sounds/boing.wav')
 pygame.mixer.music.load('sounds/background.mp3')
 pygame.mixer.music.play(-1,0,0)
 #6持續執行的迴圈
@@ -28,7 +27,6 @@ while True:
             sys.exit()
     #8每個影格要進行的動作
     objBall.update()
-
     #9清除視窗
     window.fill(BLACK)
 

@@ -10,6 +10,7 @@ class Ball():
         self.windowHeight=windowHeight
 
         self.image=pygame.image.load('images/ball.png')
+        self.bouncesound=pygame.mixer.Sound('sounds/boing.wav')
         #rect物件是由[x,y,width,height]產生
         ballRect=self.image.get_rect()
         self.widith=ballRect.width
@@ -29,10 +30,10 @@ class Ball():
         #檢測是否碰到邊界 如果有就反彈
         if(self.x<0) or (self.x>=self.maxWidth):
             self.xSpeed=-self.xSpeed
-        
+            self.bouncesound.play()
         if(self.y<0) or (self.y>=self.maxHeight):
             self.ySpeed=-self.ySpeed
-
+            self.bouncesound.play()
         #更新球的座標
         self.x=self.x+self.xSpeed
         self.y=self.y+self.ySpeed
