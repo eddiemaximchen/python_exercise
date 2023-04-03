@@ -10,7 +10,7 @@ BLUE=(0,0,255)
 class Circle():
     def __init__(self,window,maxWidth,maxHeight):
         self.window=window
-        self.color=random.choice(RED,GREEN,BLUE)
+        self.color=random.choice((RED,GREEN,BLUE))
         self.x=random.randrange(1,maxWidth-100)
         self.y=random.randrange(25,maxHeight-100)
         self.radius=random.randrange(10,50)
@@ -31,4 +31,4 @@ class Circle():
         theArea=math.pi*(self.radius**2)
         return theArea
     def draw(self):
-        pygame.draw.rect(self.window,self.color,(self.x,self.y),self.radius,0)
+        pygame.draw.circle(self.window,self.color,(self.centerX,self.centerY),self.radius,0)

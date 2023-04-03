@@ -12,7 +12,7 @@ class Triangle():
         self.width=random.randrange(10,100)
         self.height=random.randrange(10,100)
         self.triangleSlope=-1*(self.height/self.width)#斜率
-        self.color=random.choice(RED,GREEN,BLUE)
+        self.color=random.choice((RED,GREEN,BLUE))
         self.x=random.randrange(1,maxWidth-100)
         self.y=random.randrange(25,maxHeight-100)
         self.rect=pygame.Rect(self.x,self.y,self.width,self.height)
@@ -38,4 +38,4 @@ class Triangle():
         theArea=.5*self.width*self.height
         return theArea
     def draw(self):
-        pygame.draw.rect(self.window,self.color,((self.x,self.y+self.height),(self.x,self.y),(self.x+self.width,self.y)))
+        pygame.draw.polygon(self.window,self.color,((self.x,self.y+self.height),(self.x,self.y),(self.x+self.width,self.y)))

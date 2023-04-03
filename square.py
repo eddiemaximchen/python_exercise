@@ -10,7 +10,7 @@ class Square():
     def __init__(self,window,maxWidth,maxHeight):
         self.window=window
         self.widthAndHieght=random.randrange(10,100)
-        self.color=random.choice(RED,GREEN,BLUE)
+        self.color=random.choice((RED,GREEN,BLUE))
         self.x=random.randrange(1,maxWidth-100)
         self.y=random.randrange(25,maxHeight-100)
         self.rect=pygame.Rect(self.x,self.y,self.widthAndHieght,self.widthAndHieght)
@@ -25,4 +25,4 @@ class Square():
         theArea=self.widthAndHieght*self.widthAndHieght
         return theArea
     def draw(self):
-        pygame.draw.rect(self.window,self.color,(self.x,self.y),self.widthAndHieght,self.widthAndHieght)
+        pygame.draw.rect(self.window,self.color,(self.x,self.y,self.widthAndHieght,self.widthAndHieght))
