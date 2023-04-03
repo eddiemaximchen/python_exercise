@@ -7,11 +7,13 @@ class SimpleButton():
     STATE_ARMED='armed'        #按鈕按下 游標在按鈕上
     STATE_DISARMED='disarmed'  #按鈕按下 但游標不在按鈕上
 
-    def __init__(self,window,loc,up,down):
+    def __init__(self,window,loc,up,down,callBack=None):
+        #callBack是有預設值的參數
         self.window=window
         self.loc=loc
         self.surfaceUp=pygame.image.load(up)
         self.surfaceDown=pygame.image.load(down)
+        self.callBack=callBack # for call back
 
         #取得按鈕的物件 用來檢查游標是否在上面
         self.rect=self.surfaceUp.get_rect()
@@ -35,6 +37,8 @@ class SimpleButton():
             #按鈕按過 游標不在按鈕上
             if(eventObj.type==MOUSEBUTTONUP) and eventPointInButtonRect:
                 self.state=SimpleButton.STATE_IDLE
+                if self.callBack != None:
+                    self.callBack() #還是要在class裡設定callback
                 return True
             
             if (eventObj.type==MOUSEMOTION) and (not eventPointInButtonRect):
