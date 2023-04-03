@@ -1,0 +1,9 @@
+@<decorator>
+
+裝飾器可以辨別同
+ex:
+@property
+def x
+
+@x.setter
+def x
