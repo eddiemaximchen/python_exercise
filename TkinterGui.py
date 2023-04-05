@@ -1,6 +1,9 @@
 import tkinter
 import customtkinter
 from pytube import YouTube
+from PIL import Image, ImageTk
+import urllib.request
+from io import BytesIO
 
 def startDownload():
     try:
@@ -11,6 +14,16 @@ def startDownload():
         title.configure(text=ytObject.title,text_color="black")
         finishLabel.configure(text="")
         finishLabel.configure(text='Downloaded!')
+        u = urllib.request.urlopen(ytObject.thumbnail_url)
+        raw_data = u.read()
+        u.close()
+        im = Image.open(BytesIO(raw_data))
+        im = im.resize((320,240),Image.ANTIALIAS)
+        photo = ImageTk.PhotoImage(im)
+
+        button = tkinter.Button(image=photo,width=320,height=240,compound="c")
+        button.image = photo
+        button.pack()
     except:
         finishLabel.configure(text="Download Error",text_color="red")
 
