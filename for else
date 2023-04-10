@@ -1,0 +1,6 @@
+for 也可以用else
+for cheese in cheeses:
+	print(cheese)
+         break
+else:
+	print(‘if for is not being breaked,this line will be print’)
