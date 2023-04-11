@@ -1,0 +1,7 @@
+def menu(wine, entree,dessert): #參數 dessert='bagles' 參數可以指定預設值  若有引數會以引數為主
+
+
+menu('chardonnay','chicken','bagels') # 直接傳值叫位置引數
+
+menu(wine='chardonnay',entree='chicken',dessert='bagles')  #直接寫明 參數=引數 傳入時就可以不照順序   叫關鍵字引數
+
