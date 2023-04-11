@@ -1,0 +1,8 @@
+set 的值唯一 但是沒有順序
+
+set.add()
+set.remove()
+
+屬於第一個集合不屬於第二個集合叫 "差集"
+
+A-B or A.difference(B)
