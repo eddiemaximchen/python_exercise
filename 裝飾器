@@ -1,9 +1,34 @@
-@<decorator>
+裝飾器的作用就是把function 塞進 裝飾器上的function
 
-裝飾器可以辨別同
-ex:
-@property
-def x
+=====================================================
 
-@x.setter
-def x
+def document_it(func):
+    def new_function(*args,**kargs):
+        print(f'Running function: {func.__name__}')
+        print(f'Positional arguments:{args}')
+        print(f'Keyword arguments:{kargs}')
+        result=func(*args,**kargs)
+        print(f'result:{result}')
+    return new_function
+
+@document_it
+def add_ints(a,b):
+    return a+b
+
+add_ints(3,6)
+
+========================================================
+
+def document_it(func):
+    def new_function(*args,**kargs):
+        print(f'Running function: {func.__name__}')
+        print(f'Positional arguments:{args}')
+        print(f'Keyword arguments:{kargs}')
+        result=func(*args,**kargs)
+        print(f'result:{result}')
+    return new_function
+
+def add_ints(a,b):
+    return a+b
+a=document_it(add_ints)  ===>手動利用裝飾器
+print(a(1,2))
