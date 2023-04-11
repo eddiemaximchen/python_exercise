@@ -1,0 +1,6 @@
+def print_data(data,*,start=0,end=100):  # *表 data個數不變  但是一定要指定 start, end
+    for value in (data[start:end]):
+        print(value)
+
+data=[1,2]
+print_data(data,start=3)  # 不一定要指定start end 如果 out of index 不會報錯  但也部會印出東西
