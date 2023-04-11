@@ -1,0 +1,7 @@
+print((lambda a,b: a+b)(3,5))
+
+result:8
+
+lambda 變數用 逗點 隔開最後用 冒號 跟 後面的表達式隔開
+
+(lambda a,b: a+b)(3,5)  # 3,5傳值進去給 a,b
