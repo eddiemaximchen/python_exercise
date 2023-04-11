@@ -1,3 +1,7 @@
 lol=[['a','b'],['c','d'],['e','f']
 dict(lol)
 >>{'a':'b','c':'d','e','f'}
+
+lol=['ab','cd','ef']
+dict(lol)
+>>{'a':'b','c':'d','e','f'}
