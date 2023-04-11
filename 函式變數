@@ -1,0 +1,9 @@
+def knights(saying):
+    def inner():
+        return f'we are the knights who say {saying}'
+    return inner     # inner是根據saying而變得函式
+    
+=========================無法直接列印knights('ya')============
+a=knights('ya')
+print(a())
+==============print(a())會得到正確的結果=====================
