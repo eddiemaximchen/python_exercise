@@ -1,0 +1,16 @@
+def print_data():
+    '''
+    This is a docstring
+    use help function to see it
+    '''
+    pass
+    
+print(help(print_data))
+
+
+result:
+print_data()
+    This is a docstring
+    use help function to see it
+=====================================以上是docstring
+None   # 因為我的內容是pass
