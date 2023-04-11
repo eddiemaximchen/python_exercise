@@ -1,0 +1,23 @@
+dict(成對的值)={key:value}
+dict.keys 取得所有key值
+dict.values 取得所有value值
+dict.items 取得所有key&value
+dict不能用 + 相加  也不能用 * 重複元素
+合併dict時 若有相同的key 會取用最後 dict 的值
+法一: 
+      first={'a':'agony','b':'bliss'}
+      second={'c':'bagels','d':'candy'}
+      first={**first,**second}   #任一個變數來接可
+     
+法二: 
+     first.update(second)
+     
+字典也能比大小
+
+字典用 for 出來的是key
+dict.values() 才是  value
+dict.items() 會回傳含有key & value 的 tuple
+
+for card contents in accusation.items():
+
+# for 裡有兩個變數的話 一個會assign key  另一個會assign value
