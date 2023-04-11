@@ -5,3 +5,6 @@ dict(lol)
 lol=['ab','cd','ef']
 dict(lol)
 >>{'a':'b','c':'d','e','f'}
+
+lol.keys=(['a','c','e'])
+list(lol)=['a','c','e']   # 用dict.keys得到所有key值 再用list 轉為 list
