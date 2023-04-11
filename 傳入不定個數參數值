@@ -1,0 +1,31 @@
+def print_args(*args): *args 是不定個數位置引數
+    print(args)
+
+print_args(1)
+print_args(1,2)
+print_args(1,2,'3')
+print_args(1,2,['a','b'])
+
+
+result: (傳入值不限型態 回傳值一率包成tuple)
+(1,)
+(1, 2)
+(1, 2, '3')
+(1, 2, ['a', 'b'])
+==========================================================
+
+def print_args(**args):  **args 是不定個數關鍵字引數
+    print(args)
+    
+print_args(a=1)
+print_args(a=1,b='2')
+print_args(a=1,b='2',c={'a':'1','b':'2'})
+print_args(a=1,b='2',c=['a','b'])
+print_args(a=(1,2,3))
+
+result: (傳入值不限型態 回傳值一率包成)
+{'a': 1}
+{'a': 1, 'b': '2'}
+{'a': 1, 'b': '2', 'c': {'a': '1', 'b': '2'}}
+{'a': 1, 'b': '2', 'c': ['a', 'b']}
+{'a': (1, 2, 3)}
