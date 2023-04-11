@@ -1,0 +1,13 @@
+def buggy(arg,result=[]) #位置引數有預設值
+  result.append(arg)
+  print(result)
+  
+def buggy(arg)          # result 直接在程式段
+  result=[]
+  result.append(arg)
+  print(result)
+  
+def buggy(arg,result=None):  #result的預設值不是要用的值
+  if result is None:
+    result=[]
+  result.append(arg)
