@@ -1,0 +1,10 @@
+import os 
+key='home'
+
+os.getenv(key,default=None)
+
+print ("value of 'home' env:",value)
+會印出 value of 'home' env:
+用途：获取环境变量键的值（存在），否则返回默认值
+
+环境变量是在操作系统中一个具有特定名字的对象，它包含了一个或者多个应用程序所将使用到的信息。通俗理解为：一些被指定的文件夹路径，目的是为了更快速方便的找到想要的文件和文件夹。
